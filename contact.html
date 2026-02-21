@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- meta-tags -->
+    <meta
+      name="description"
+      content="Browse and buy our full electric guitar catalog featuring multiple colors, styles, and premium brands. Filter and compare guitars to find the perfect model for your sound."
+    />
+    <meta
+      name="keywords"
+      content="guitar catalog, electric guitars for sale, guitar colors, guitar brands, buy guitars online, professional electric guitars, guitar shop catalog, instrument store"
+    />
+    <meta name="author" content="Giorgi Jikia" />
+    <!-- facebook-meta-tags -->
+    <meta
+      property="og:url"
+      content="https://github.com/GioJIkia/giorgi-jikia-homework_final-.git"
+    />
+    <meta property="og:type" content="guitar shop" />
+    <meta
+      property="og:title"
+      content="Browse and Buy Electric Guitars by Brand & Style"
+    />
+    <meta
+      property="og:description"
+      content="Our electric guitar catalog offers a variety of colors, styles, and premium brands. Filter and compare guitars to find the perfect model for your sound."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1721159625645-917ff3aa7525?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    />
+    <!-- reset.css -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <!-- style.css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- laptops.css -->
+    <link rel="stylesheet" href="./css/laptops.css" />
+    <!-- tablets.css -->
+    <link rel="stylesheet" href="./css/tablets.css" />
+    <!-- mobiles.css -->
+    <link rel="stylesheet" href="./css/mobiles.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./images/guitar-logo.svg"
+      type="image/x-icon"
+    />
+    <title>Browse and Buy Electric Guitars by Brand & Style</title>
+  </head>
+  <body>
+    <!-- container -->
+    <div class="container">
+      <!---------------------------------- header ------------------------------>
+      <header class="container-header">
+        <button id="dark-mode-button">Dark Mode</button>
+        <img
+          src="./images/burger-icon.svg"
+          alt="burger-icon; three-equal-horizontal-lines"
+          class="header-burger-icon"
+        />
+        <img src="./images/x-icon.svg" alt="x-icon" class="header-x-icon" />
+        <nav class="header-menu">
+          <ul class="header-menu-items">
+            <li>
+              <a href="./index.html" class="header-page-link">Home</a>
+            </li>
+            <li>
+              <a href="./catalog.html" class="header-page-link">Catalog</a>
+            </li>
+            <li>
+              <a href="./contact.html" class="header-page-link">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="./index.html">
+          <img
+            src="./images/guitar-logo.svg"
+            alt="guitar-icon;tilted-45%-to-the-right"
+            class="header-logo"
+          />
+        </a>
+        <div class="header-buttons">
+          <button class="header-button user-icon">
+            <img
+              src="./images/user-icon.svg"
+              alt="person-symbol-representing-a-user-account-or-profile"
+            />
+          </button>
+          <button class="header-button">
+            <img src="./images/cart-icon.svg" alt="shopping-cart-icon" />
+          </button>
+        </div>
+      </header>
+      <!----------------------------- page-3-sections-container --------------------------------->
+      <section class="page-3-section-container">
+        <section class="page-3-section">
+          <!------------------- page-3-title-and-form-section -------------------->
+          <section class="page-3-title-and-form-section">
+            <h2 class="page-3-title-and-form-section-title">Get in Touch</h2>
+            <form id="my-form" name="contact">
+              <div class="page-3-section-form-input-container">
+                <input
+                  class="input-1"
+                  type="text"
+                  name="fullName"
+                  placeholder="fullName"
+                />
+                <span class="error-msg-fullName"></span>
+              </div>
+              <div>
+                <input
+                  class="input-2"
+                  type="Email"
+                  name="Email"
+                  placeholder="Email"
+                />
+                <span class="error-msg-email"></span>
+              </div>
+              <div>
+                <input
+                  class="input-3"
+                  type="Telephone-number"
+                  name="Telephone-number"
+                  placeholder="Telephone-number"
+                />
+                <span class="error-msg-telephone-number"></span>
+              </div>
+              <div>
+                <textarea
+                  name="more-details"
+                  id="more-details"
+                  placeholder="more-details"
+                ></textarea>
+                <span class="error-msg-more-details"></span>
+              </div>
+              <button class="page-3-section-form-button" type="submit">
+                SEND MESSAGE
+              </button>
+            </form>
+          </section>
+          <!---------------------- page-3-address-and-map-section ------------------>
+          <section class="page-3-address-and-map-container">
+            <address class="page-3-address">
+              <a
+                href="tel:+(32)2 56 78 98"
+                class="page-3-section-address-buttons-link"
+                ><button class="page-3-section-address-button">
+                  <img
+                    src="./images/phone-call-icon.svg"
+                    alt="phone-call-icon"
+                  /></button
+              ></a>
+              <a
+                href="mailto:test@gmail.com"
+                class="page-3-section-address-buttons-link"
+                ><button class="page-3-section-address-button">
+                  <img
+                    src="./images/email-icon.svg"
+                    alt="white-email-icon"
+                  /></button
+              ></a>
+              <a
+                href="https://maps.app.goo.gl/KHrDvpvSnMv3BsR46"
+                target="_blank"
+                class="page-3-section-address-buttons-link"
+              >
+                <button class="page-3-section-address-button">
+                  <img
+                    src="./images/address-marker-icon.svg"
+                    alt="address-marker-icon"
+                  />
+                </button>
+              </a>
+            </address>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.938102809253!2d44.79088798352174!3d41.70027190244542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cdd6f5381cb%3A0x86bcad58f3700906!2zMjQg4YOo4YOd4YOX4YOQIOGDoOGDo-GDoeGDl-GDkOGDleGDlOGDmuGDmOGDoSDhg5Lhg5Dhg5vhg5bhg5jhg6Dhg5gsIOGDl-GDkeGDmOGDmuGDmOGDoeGDmA!5e0!3m2!1ska!2sge!4v1764431987545!5m2!1ska!2sge"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </section>
+        </section>
+      </section>
+      <!----------------------------- footer -------------------------->
+      <footer class="container-footer">
+        <section class="container-footer-section">
+          <h2 class="container-footer-title">Brands</h2>
+          <ul class="footer-brands-list">
+            <li>
+              <a href="#" class="footer-brands-link">Fender</a>
+            </li>
+            <li>
+              <a href="#" class="footer-brands-link">Gibson</a>
+            </li>
+            <li>
+              <a href="#" class="footer-brands-link">Jockson</a>
+            </li>
+            <li>
+              <a href="#" class="footer-brands-link">Ibanez</a>
+            </li>
+          </ul>
+        </section>
+        <section class="container-footer-section">
+          <h2 class="container-footer-title">Information</h2>
+          <ul class="footer-pages-list">
+            <li>
+              <a href="#" class="footer-pages-link">Blog</a>
+            </li>
+            <li>
+              <a href="#" class="footer-pages-link">Delivery</a>
+            </li>
+            <li>
+              <a href="#" class="footer-pages-link">About us</a>
+            </li>
+          </ul>
+        </section>
+        <section class="container-footer-section">
+          <h2 class="container-footer-title">Contact</h2>
+          <div class="footer-address-and-social-media-container">
+            <address class="footer-address">
+              <a
+                href="https://maps.app.goo.gl/8F4QLEpDcimQtZMA8"
+                target="_blank"
+                class="footer-address-text"
+                >Tbilisi, str, Rustaveli 24</a
+              >
+              <a
+                href="tel:(32)2 56 78 98"
+                target="_blank"
+                class="footer-address-text"
+                >+(32)2 56 78 98</a
+              >
+            </address>
+            <ul class="footer-social-media-container">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <img
+                    src="./images/facebook-icon.svg"
+                    alt="facebook-logo"
+                    class="footer-social-media"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.whatsapp.com/" target="_blank">
+                  <img
+                    src="./images/whatsapp-icon.svg"
+                    alt="whatsapp-logo"
+                    class="footer-social-media"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <img
+                    src="./images/instagram-icon.svg"
+                    alt="instagram-logo"
+                    class="footer-social-media"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
