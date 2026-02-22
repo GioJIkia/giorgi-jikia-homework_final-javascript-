@@ -36,7 +36,7 @@
   }
   /* -------------------page-2-products-catalog-section----------------- */
   .page-2-products-catalog-section {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 400px 400px;
   }
   .card-display-none-1180px {

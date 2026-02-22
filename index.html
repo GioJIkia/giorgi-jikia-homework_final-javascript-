@@ -3,34 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- meta-tags -->
-    <meta
-      name="description"
-      content="Browse and buy our full electric guitar catalog featuring multiple colors, styles, and premium brands. Filter and compare guitars to find the perfect model for your sound."
-    />
-    <meta
-      name="keywords"
-      content="guitar catalog, electric guitars for sale, guitar colors, guitar brands, buy guitars online, professional electric guitars, guitar shop catalog, instrument store"
-    />
-    <meta name="author" content="Giorgi Jikia" />
-    <!-- facebook-meta-tags -->
-    <meta
-      property="og:url"
-      content="https://github.com/GioJIkia/giorgi-jikia-homework_final-.git"
-    />
-    <meta property="og:type" content="guitar shop" />
-    <meta
-      property="og:title"
-      content="Browse and Buy Electric Guitars by Brand & Style"
-    />
-    <meta
-      property="og:description"
-      content="Our electric guitar catalog offers a variety of colors, styles, and premium brands. Filter and compare guitars to find the perfect model for your sound."
-    />
-    <meta
-      property="og:image"
-      content="https://images.unsplash.com/photo-1721159625645-917ff3aa7525?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    />
     <!-- reset.css -->
     <link rel="stylesheet" href="./css/reset.css" />
     <!-- style.css -->
@@ -48,13 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- favicon -->
-    <link
-      rel="shortcut icon"
-      href="./images/guitar-logo.svg"
-      type="image/x-icon"
-    />
-    <title>Browse and Buy Electric Guitars by Brand & Style</title>
+    <title>Buy popular products</title>
   </head>
   <body>
     <!-- container -->
@@ -81,13 +47,6 @@
             </li>
           </ul>
         </nav>
-        <a href="./index.html">
-          <img
-            src="./images/guitar-logo.svg"
-            alt="guitar-icon;tilted-45%-to-the-right"
-            class="header-logo"
-          />
-        </a>
         <div class="header-buttons">
           <button class="header-button user-icon">
             <img
@@ -102,93 +61,29 @@
       </header>
       <!----------------------- page-1-section-1 -------------------->
       <section class="page-1-section-1">
-        <a href="./catalog.html" class="page-1-section-1-link">
-          <span class="page-1-section-1-link-text"
-            >NEW
-            <span class="page-1-section-1-link-text-different-color"
-              >COLLECTION</span
-            ></span
-          >
-          <button class="page-1-section-1-link-button">
+        <a id="slider-link" href="">
+          <img id="page-1-slider-image" />
+        </a>
+        <div class="page-1-button-container">
+          <button class="page-1-slider-previous-button">
             <img
-              src="./images/arrow-right-icon.svg"
-              alt="arrow-pointing-right-icon"
+              src="./images/arrow-point-to-left-icon.svg"
+              alt="arrow-point-to-left-icon"
+            />
+            <span
+              class="page-1-slider-previous-button-text text-display-none-480px"
+              >Previous</span
+            >
+          </button>
+          <button class="page-1-slider-next-button">
+            <span class="page-1-slider-next-button-text text-display-none-480px"
+              >Next</span
+            >
+            <img
+              src="./images/arrow-point-to-right-icon.svg"
+              alt="arrow-point-to-right-icon"
             />
           </button>
-        </a>
-        <aside class="page-1-section-1-animation-container">
-          <p class="page-1-section-1-animation-container-text">100% quality</p>
-          <div class="page-1-section-1-animation-container-border"></div>
-        </aside>
-      </section>
-      <!----------------------- page-1-section-2 -------------------->
-      <section class="page-1-section-2">
-        <h1 class="page-1-section-2-title">Most Popular</h1>
-        <div class="page-1-section-2-article-container">
-          <article class="page-1-section-2-article-card">
-            <div class="page-1-section-2-article-card-image-box">
-              <img
-                src="./images/guitar-white-blue.png"
-                alt="light-blue-white-electric-guitar-standing-upright-on-a-dimly-lit-stage; the-guitar-is-plugged-into-a-power-source-and-ready-to-play"
-                class="page-1-section-2-article-card-image"
-              />
-            </div>
-            <h2 class="page-1-section-2-article-card-title">PRODUCT TITLE</h2>
-            <div
-              class="page-1-section-2-article-card-price-and-button-container"
-            >
-              <h3 class="page-1-section-2-article-card-price">$950</h3>
-              <button class="page-1-section-2-article-card-button">ADD</button>
-            </div>
-          </article>
-          <article class="page-1-section-2-article-card">
-            <div class="page-1-section-2-article-card-image-box">
-              <img
-                src="./images/guitar-white-blue.png"
-                alt="light-blue-white-electric-guitar-standing-upright-on-a-dimly-lit-stage; the-guitar-is-plugged-into-a-power-source-and-ready-to-play"
-                class="page-1-section-2-article-card-image"
-              />
-            </div>
-            <h2 class="page-1-section-2-article-card-title">PRODUCT TITLE</h2>
-            <div
-              class="page-1-section-2-article-card-price-and-button-container"
-            >
-              <h3 class="page-1-section-2-article-card-price">$950</h3>
-              <button class="page-1-section-2-article-card-button">ADD</button>
-            </div>
-          </article>
-          <article class="page-1-section-2-article-card">
-            <div class="page-1-section-2-article-card-image-box">
-              <img
-                src="./images/guitar-white-blue.png"
-                alt="light-blue-white-electric-guitar-standing-upright-on-a-dimly-lit-stage; the-guitar-is-plugged-into-a-power-source-and-ready-to-play"
-                class="page-1-section-2-article-card-image"
-              />
-            </div>
-            <h2 class="page-1-section-2-article-card-title">PRODUCT TITLE</h2>
-            <div
-              class="page-1-section-2-article-card-price-and-button-container"
-            >
-              <h3 class="page-1-section-2-article-card-price">$950</h3>
-              <button class="page-1-section-2-article-card-button">ADD</button>
-            </div>
-          </article>
-          <article class="page-1-section-2-article-card">
-            <div class="page-1-section-2-article-card-image-box">
-              <img
-                src="./images/guitar-white-blue.png"
-                alt="light-blue-white-electric-guitar-standing-upright-on-a-dimly-lit-stage; the-guitar-is-plugged-into-a-power-source-and-ready-to-play"
-                class="page-1-section-2-article-card-image"
-              />
-            </div>
-            <h2 class="page-1-section-2-article-card-title">PRODUCT TITLE</h2>
-            <div
-              class="page-1-section-2-article-card-price-and-button-container"
-            >
-              <h3 class="page-1-section-2-article-card-price">$950</h3>
-              <button class="page-1-section-2-article-card-button">ADD</button>
-            </div>
-          </article>
         </div>
       </section>
       <!----------------------------- footer -------------------------->
