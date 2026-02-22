@@ -20,16 +20,6 @@
     flex-direction: column;
     row-gap: 8px;
   }
-  /* -------------------page-1-section-2-styles------------------ */
-  .page-1-section-2 {
-    padding-inline: 32px 0px;
-  }
-  .page-1-section-2-article-container {
-    overflow-x: scroll;
-  }
-  .page-1-section-2-article-card {
-    flex: 1 0 272px;
-  }
   /* ---------------------------page-2-section--------------------------- */
   .page-2-section-container {
     padding-inline: 32px;
@@ -38,9 +28,6 @@
   .page-2-products-catalog-section {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 400px 400px;
-  }
-  .card-display-none-1180px {
-    display: none;
   }
   /* ---------------------page-3-sections-container------------------ */
   .page-3-section-container {

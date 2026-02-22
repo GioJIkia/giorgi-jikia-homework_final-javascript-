@@ -105,7 +105,7 @@ const userIcon = document.querySelector(".user-icon");
 userIcon.addEventListener("click", () => {
   window.location.href = "contact.html";
 });
-//ფილტრაციის აწქყობა
+//ფილტრაციის აწყობა
 const nameInput = document.getElementById("name-search");
 const categorySelect = document.getElementById("category-filter");
 const priceInput = document.getElementById("price-range");
@@ -174,7 +174,7 @@ function renderProducts(productsList) {
           <h2 class="page-2-products-catalog-card-title">${product.title.slice(0, 9)}</h2>
           <div class="page-2-products-catalog-card-price-and-button-container">
             <h3 class="page-2-products-catalog-card-price">$${increasedPrice}</h3>
-            <button class="page-2-products-catalog-card-button">
+            <button class="page-2-products-catalog-card-button add-to-cart-btn" data-id="${product.id}">
               <img src="./images/cart-icon-button.svg" alt="cart" />
             </button>
           </div>
@@ -188,7 +188,6 @@ function renderProducts(productsList) {
     productContainer.innerHTML = html;
   }
 }
-
 //პროდუქტის ფასის გაძვირების ფუნქცია 10%-ით
 function updateProductPrice(productId, oldPrice) {
   fetch(`https://fakestoreapi.com/products/${productId}`, {
@@ -203,7 +202,72 @@ function updateProductPrice(productId, oldPrice) {
     .then((res) => res.json())
     .then((data) => console.log(`product ${productId} Updated:`, data.price));
 }
+//card-ზე დაჭერისას პროდუქტების დამატება
+// რაოდენობის წამოღება LocalStorage-დან, რათა შემდეგ დარეფრეშებისას არ გაქრეს
+let cartCount = Number(localStorage.getItem("cartQuantity")) || 0;
 
+//ვიზუალის განახლება
+const countSpan = document.getElementById("cart-count");
+if (cartCount > 0 && countSpan) {
+  countSpan.textContent = cartCount;
+  countSpan.style.display = "block";
+}
+
+//პროდუქტის დამატების ივენთი
+if (productContainer) {
+  productContainer.addEventListener("click", (element) => {
+    // closest პოულობს ღილაკს, ყველაზე ახლოს
+    const cardbtn = element.target.closest(".add-to-cart-btn");
+
+    if (cardbtn) {
+      const productId = cardbtn.dataset.id;
+      addToCartServer(productId);
+      updateCartUI();
+    }
+  });
+}
+
+//POST მეთოდი ბექენდისთვის
+function addToCartServer(productId) {
+  fetch("https://fakestoreapi.com/carts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: 1,
+      products: [{ productId: Number(productId) }],
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log("ბექენდმა მიიღო:", data))
+    .catch((err) => console.error("შეცდომა:", err));
+}
+
+//ერთიანი ფუნქცია ვიზუალისთვის და შენახვისთვის
+function updateCartUI() {
+  cartCount++; // ვზრდით ცვლადს
+  localStorage.setItem("cartQuantity", cartCount); // ვინახავთ "ყუთში"
+
+  const countSpan = document.getElementById("cart-count");
+  if (countSpan) {
+    countSpan.textContent = cartCount;
+    countSpan.style.display = "block";
+  }
+}
+//გვინდა მე-10-დან მე-20 მდე პროდუქტები წაშლა, რომელიც არ გამოგვაქვს საიტზე
+const idsToDelete = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+for (const id of idsToDelete) {
+  fetch(`https://fakestoreapi.com/products/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(`პროდუქტი ID: ${id} წარმატებით წაიშალა`);
+    })
+    .catch((err) => {
+      console.error(`შეცდომა ID: ${id}-ის წაშლისას:`, err);
+    });
+}
 //ფორმის ვალიდაციები
 const myForm = document.getElementById("my-form");
 const formBtn = document.querySelector(".page-3-section-form-button");
@@ -258,7 +322,7 @@ if (myForm && formBtn) {
       isValid = false;
     }
 
-    // 2. შენახვა მოხდება მხოლოდ მაშინ, თუ isValid არის true
+    //შენახვა მოხდება მხოლოდ მაშინ, თუ isValid არის true
     if (isValid) {
       const userData = {
         name: fullName,
