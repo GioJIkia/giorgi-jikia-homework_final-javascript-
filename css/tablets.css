@@ -17,6 +17,11 @@
   .page-2-section-container {
     padding: 48px 24px;
   }
+  /* //page-2-filter-section */
+  .page-2-filter-section {
+    flex-direction: column;
+    row-gap: 20px;
+  }
   /* -------------------page-2-products-catalog-section----------------- */
   .page-2-products-catalog-section {
     grid-template-columns: auto;

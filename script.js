@@ -43,46 +43,6 @@ function checkTheme() {
 
 checkTheme();
 
-//პროდუქტების წამოღება და ქარდებში ჩასმა
-
-fetch("https://fakestoreapi.com/products?limit=9")
-  .then((res) => res.json())
-  .then((products) => {
-    const container = document.getElementById("products-container");
-    if (container) {
-      let allCardPage2 = "";
-      products.forEach((product) => {
-        //ქარდების დამატება ცვლადში
-        allCardPage2 =
-          allCardPage2 +
-          `
-              <article id = "product-${product.id}" class="page-2-products-catalog-card">
-                    <div class="page-2-products-catalog-card-image-box">
-                        <img
-                            src="${product.image}"
-                            alt="${product.title}"
-                            class="page-2-products-catalog-card-image"
-                        />
-                    </div>
-                    <div class="page-2-products-catalog-card-title-price-and-button-container">
-                        <h2 class="page-2-products-catalog-card-title">${product.title.slice(0, 9)}...</h2>
-                        <div class="page-2-products-catalog-card-price-and-button-container">
-                            <h3 class="page-2-products-catalog-card-price">$${product.price}</h3>
-                            <button class="page-2-products-catalog-card-button">
-                                <img
-                                    src="./images/cart-icon-button.svg"
-                                    alt="shopping-white-cart-icon"
-                                />
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            `;
-      });
-      container.innerHTML = allCardPage2;
-    }
-  });
-
 //სლაიდერის აწყობა წამოღებული პროდუქტებით
 fetch("https://fakestoreapi.com/products?limit=9")
   .then((res) => res.json())
@@ -145,6 +105,104 @@ const userIcon = document.querySelector(".user-icon");
 userIcon.addEventListener("click", () => {
   window.location.href = "contact.html";
 });
+//ფილტრაციის აწქყობა
+const nameInput = document.getElementById("name-search");
+const categorySelect = document.getElementById("category-filter");
+const priceInput = document.getElementById("price-range");
+const priceLabel = document.getElementById("price-value");
+const productContainer = document.getElementById("products-container");
+
+let allProducts = [];
+
+if (productContainer) {
+  fetch("https://fakestoreapi.com/products?limit=9")
+    .then((res) => res.json())
+    .then((products) => {
+      allProducts = products;
+      renderProducts(allProducts); // საწყისი ჩვენება
+      allProducts.forEach((product) => {
+        updateProductPrice(product.id, product.price);
+      });
+    });
+}
+
+// ივენთების მიბმა - თუ არსებობს ელემენტები
+
+if (nameInput && categorySelect && priceInput) {
+  nameInput.addEventListener("input", filterAll);
+  categorySelect.addEventListener("change", filterAll);
+  priceInput.addEventListener("input", filterAll);
+}
+
+// მთავარი ფილტრაციის ფუნქცია
+function filterAll() {
+  const searchTerm = nameInput.value.toLowerCase(); //დიდი ასოებიც რომ წაიკითხოს
+  const selectedCategory = categorySelect.value;
+  const maxPrice = Number(priceInput.value); //რიცხვად გადაქცევა
+
+  // ფასის მნიშვნელობის განახლება მითითებული ფასით
+  priceLabel.textContent = maxPrice;
+
+  // ფილტრაციის ჯაჭვი
+  const filtered = allProducts.filter((product) => {
+    const includesName = product.title.toLowerCase().includes(searchTerm);
+    const matchesCategory =
+      selectedCategory === "all" || product.category === selectedCategory;
+    const selectedPrice = product.price <= maxPrice;
+
+    return includesName && matchesCategory && selectedPrice; //თუ სამივე სრულდება დარჩება სიაში
+  });
+
+  renderProducts(filtered);
+}
+// პროდუქტების ეკრანზე გამოტანის და ქარდებში ჩასმის ფუნქცია
+function renderProducts(productsList) {
+  const productContainer = document.getElementById("products-container");
+  let html = "";
+
+  productsList.forEach((product) => {
+    //10%-ით ვზრდი ფასს
+    const increasedPrice = (product.price * 1.1).toFixed(1);
+    html =
+      html +
+      `
+      <article id="product-${product.id}" class="page-2-products-catalog-card">
+        <div class="page-2-products-catalog-card-image-box">
+          <img src="${product.image}" alt="${product.title}" class="page-2-products-catalog-card-image" />
+        </div>
+        <div class="page-2-products-catalog-card-title-price-and-button-container">
+          <h2 class="page-2-products-catalog-card-title">${product.title.slice(0, 9)}</h2>
+          <div class="page-2-products-catalog-card-price-and-button-container">
+            <h3 class="page-2-products-catalog-card-price">$${increasedPrice}</h3>
+            <button class="page-2-products-catalog-card-button">
+              <img src="./images/cart-icon-button.svg" alt="cart" />
+            </button>
+          </div>
+        </div>
+      </article>`;
+  });
+  if (html === "") {
+    productContainer.innerHTML = "<p>No products found...</p>";
+    productContainer.style.color = "var(--primary-coror-bright-cyan)";
+  } else {
+    productContainer.innerHTML = html;
+  }
+}
+
+//პროდუქტის ფასის გაძვირების ფუნქცია 10%-ით
+function updateProductPrice(productId, oldPrice) {
+  fetch(`https://fakestoreapi.com/products/${productId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      price: (oldPrice * 1.1).toFixed(1), //დამრგვალება წერტილის მერე ერთ ციფრზე
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(`product ${productId} Updated:`, data.price));
+}
 
 //ფორმის ვალიდაციები
 const myForm = document.getElementById("my-form");
@@ -208,9 +266,9 @@ if (myForm && formBtn) {
         phone: telephoneNumber,
         details: moreDetailsText,
       };
-
       sessionStorage.setItem("userinformation", JSON.stringify(userData)); //JSON.stringify გვჭირდება სტრინგად გამოსატანად
       alert("ინფორმაცია წარმატებით შეინახა!");
+      console.log(userData);
     }
   });
 }

@@ -63,30 +63,30 @@
       <section class="page-2-section-container">
         <!---page-2-filter-section --->
         <section class="page-2-filter-section">
-          <div class="page-2-filter-section-filter-container">
-            <p
-              class="page-2-filter-section-filter-container-text text-display-none-480px"
-            >
-              Filter
-            </p>
-            <img
-              src="./images/filter-icon.svg"
-              alt="filter-icon; three-horizontal-lines-downwards-decreasing-evenly"
-              class="page-2-filter-section-filter-container-icon"
+          <input
+            type="text"
+            id="name-search"
+            placeholder="Search by name"
+            class="filter-input"
+          />
+
+          <select id="category-filter" class="filter-input">
+            <option value="all">All Categories</option>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="women's clothing">Women's Clothing</option>
+          </select>
+
+          <div class="price-filter-box">
+            <span>Max Price: $<span id="price-value">1000</span></span>
+            <input
+              type="range"
+              id="price-range"
+              min="0"
+              max="1000"
+              value="1000"
             />
-          </div>
-          <div class="page-2-filter-section-sort-by-container">
-            <p class="page-2-filter-section-sort-by-container-text">Sort by:</p>
-            <button class="page-2-filter-section-sort-by-container-button">
-              <span
-                class="page-2-filter-section-sort-by-container-button-text text-display-none-480px"
-                >Best selling</span
-              >
-              <img
-                src="./images/arrow-point-to-down-icon.svg"
-                alt="arrow-point-to-down-icon"
-              />
-            </button>
           </div>
         </section>
         <!--- page-2-products-catalog-section --->
